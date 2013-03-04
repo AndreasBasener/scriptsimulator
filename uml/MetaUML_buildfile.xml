@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE project PUBLIC "-//APACHE//DTD Documentation V1.3//EN" "document-v13.dtd">
+<project name="Build eps from mp" default="Build eps" basedir=".">
+&#9;<description>
+&#9;&#9;This simple Ant build file works within the Eclipse IDE. It first uses mptopdf to create a pdf file from the mp file, and afterwards uses pdftops (http://www.foolabs.com/xpdf/) to create an eps file. You need to adjust the filename property below (without .mp file extension). Also make sure that both mptopdf and pdftops are on the system path, or change the executables below to point to their absolute location.
+&#9;&#9;
+&#9;&#9;Feel free to outcomment the delete commands below if you want to keep all (or some) of the temporary files.
+&#9;&#9;
+&#9;&#9;If the build doesn't work because the eclipse.refreshWorkspace task can't be found: right-click the build.xml file, choose "Run As/Ant build..." and select "Run in the same JRE as the workspace" from the JRE tab.
+    </description>
+
+&#9;<property name="filename" value="YourFile"/>
+
+&#9;<property name="mpfile" value="${filename}.mp"/>
+&#9;<property name="pdffile" value="${filename}-1.pdf"/>
+&#9;<property name="psfile" value="${filename}.eps"/>
+
+&#9;<target name="Build eps" description="build pdf and eps from mp">
+
+&#9;&#9;<exec executable="mptopdf" failifexecutionfails="true" failonerror="true">
+&#9;&#9;&#9;<arg value="${mpfile}"/>
+&#9;&#9;</exec>
+
+&#9;&#9;<exec executable="pdftops" failifexecutionfails="true" failonerror="true">
+&#9;&#9;&#9;<arg value="-eps"/>
+&#9;&#9;&#9;<arg value="${pdffile}"/>
+&#9;&#9;&#9;<arg value="${psfile}"/>
+&#9;&#9;</exec>
+
+&#9;&#9;<delete file="${filename}.mpo"/>
+&#9;&#9;<delete file="${filename}.1"/>
+&#9;&#9;<delete file="${filename}.log"/>
+&#9;&#9;<delete file="${pdffile}"/>
+&#9;&#9;<delete file="mptrace.tmp"/>
+
+&#9;&#9;<eclipse.refreshLocal depth="infinite" resource="."/>
+&#9;</target>
+
+</project>
