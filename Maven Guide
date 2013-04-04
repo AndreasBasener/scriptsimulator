@@ -1,0 +1,14 @@
+So bekommt man Maven überedet den Scriptsimulator zu starten:
+
+Run->Run Configurations-> new Maven Build
+Dort dann folgendes eintragen:
+
+goal: exec:java
+profile: [das passende Profile aus der POM kopieren. z.B. für Windows 32 bit: windows.x86, oder für Linux 64bit:linux.x86_64]
+
+Um lauffähige jars zu erstellen muss muss als goal "package" eingegeben werden. Das Profil muss dann 
+wie oben angegeben werden
+
+nützliche Links:
+http://charlie.cu.cc/2012/06/how-add-external-libraries-maven/
+http://livingplace.informatik.haw-hamburg.de/content/LPWrapper/LivingPlaceMessaging-1.0.3-jar-with-dependencies.jar
