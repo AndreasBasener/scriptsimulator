@@ -12,4 +12,4 @@ Was muss alles getan werden, um einen neuen Eintrag in den Simulator zu bekommen
 	2.1 im Package "script.entry" neue Klasse für den Eintrag erstellen
 	2.2 Klasse mit "extends ScriptEntry" versehen
 	2.3 passenden Konstruktor erstellen
-	2.4 
+	2.4 blah
