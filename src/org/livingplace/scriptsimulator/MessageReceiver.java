@@ -7,6 +7,12 @@ import javax.jms.*;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.joda.time.*;
+import org.livingplace.scriptsimulator.script.entry.UbisenseMockupData;
+import org.livingplace.scriptsimulator.script.json.Point3DJsonConverter;
+import org.livingplace.scriptsimulator.script.json.UbisenseMockupDataJsonConverter;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * Simple <code>MessageReceiver</code>
@@ -22,7 +28,11 @@ public class MessageReceiver
 	 */
 	public static void main(String[] args)
 	{
-
+		GsonBuilder builder = new GsonBuilder();
+		builder.registerTypeAdapter(UbisenseMockupData.class, new UbisenseMockupDataJsonConverter());
+		builder.registerTypeAdapter(Point3D.class, new Point3DJsonConverter());
+		Gson gson = builder.create();
+		
 		DateTime start = null;
 
 		Long offset = null;
@@ -40,7 +50,7 @@ public class MessageReceiver
 
 			TopicSession newSession = connection.createTopicSession(transacted,
 																	Session.AUTO_ACKNOWLEDGE);
-			Topic topic = newSession.createTopic(Helper.UBISENSE_TRACKING_TOPIC);
+			Topic topic = newSession.createTopic(Helper.UBISENSE_ENTRY_TOPIC_NAME);
 
 			// Setup a message publisher to send messages to the topic
 			subscriber = newSession.createSubscriber(topic);
@@ -53,6 +63,11 @@ public class MessageReceiver
 			{
 				TextMessage txtMessage = (TextMessage) subscriber.receive();
 
+				UbisenseMockupData data = gson.fromJson(txtMessage.getText(), UbisenseMockupData.class);
+				
+				String csvString =  data.getTime() + ";" + 
+									data.getPosition().getX() + ";" + 
+									data.getPosition().getY();
 				if (start == null)
 				{
 					start = new DateTime();
@@ -65,17 +80,21 @@ public class MessageReceiver
 					offset = dur.getMillis();
 				}
 
-				String txt = txtMessage.getText();
+				String jsontxt = txtMessage.getText();
 
-				txt = txt.replaceAll(	"\r\n",
+				jsontxt = jsontxt.replaceAll(	"\r\n",
 										"");
-				txt = txt.replaceAll(	"[ ]+",
+				jsontxt = jsontxt.replaceAll(	"[ ]+",
 										"");
 
-				txt = (dur.getMillis() - offset) + ";" + txt;
+				jsontxt = (dur.getMillis() - offset) + ";" + jsontxt;
 
-				System.out.println(txt);
-				writer.println(txt);
+//				System.out.println(jsontxt);
+//				writer.println(jsontxt);
+				
+
+				System.out.println(csvString);
+				writer.println(csvString);
 				writer.flush();
 			}
 		}
