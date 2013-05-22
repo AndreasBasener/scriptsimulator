@@ -7,6 +7,7 @@ import org.joda.time.Period;
 import org.livingplace.scriptsimulator.Helper;
 import org.livingplace.scriptsimulator.Point3D;
 import org.livingplace.scriptsimulator.script.listener.UbisenseToolsEntryListener;
+import org.livingplace.scriptsimulator.script.listener.writerlistener.UbisenseToolsWriterListener;
 
 import com.google.gson.Gson;
 
@@ -282,12 +283,21 @@ public class UbisenseToolsEntry extends ScriptEntry
 	@Override
 	public void initDefaultListener(String activeMQip, String mongoDBip, Gson gson)
 	{
-		if (listenerList.getListenerCount() == 0)
-			this.addEntryListener(new UbisenseToolsEntryListener(	activeMQip,
-																	mongoDBip,
-																	gson));
+		this.addEntryListener(new UbisenseToolsEntryListener(	activeMQip,
+																mongoDBip,
+																gson));
+		this.addEntryListener(new UbisenseToolsWriterListener(activeMQip, mongoDBip, gson));
 	}
 
+	@Override
+	public long getExecutionTime()
+	{
+		if(ubisenseData != null)
+			return ubisenseData.getTime();
+		else
+			return super.getExecutionTime();
+	}
+	
 	/**
 	 * @return the ubiToolType
 	 */

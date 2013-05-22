@@ -12,6 +12,7 @@ import org.joda.time.Duration;
 import org.joda.time.Period;
 import org.livingplace.scriptsimulator.Deviation;
 import org.livingplace.scriptsimulator.Helper;
+import org.livingplace.scriptsimulator.MessageFileWriter;
 import org.livingplace.scriptsimulator.script.exceptions.IllegalSpeedValueException;
 import org.livingplace.scriptsimulator.script.listener.EntryListener;
 
@@ -253,6 +254,8 @@ public class Script implements Scriptable
 		Duration dur = new Duration(startDT,
 									stopDT);
 		System.out.println("Skript \""+ name +"\" beendet. Ausführungszeit: " + dur);
+		
+		MessageFileWriter.flushBuffer();
 	}
 
 	/**
@@ -537,6 +540,14 @@ public class Script implements Scriptable
 	@Override
 	public boolean getSendTime() {
 		return this.sendTime;
+	}
+
+	@Override
+	public long getExecutionTime() {
+		long milli = startDate.getMillis();
+		milli += offset.toStandardDuration().getMillis();
+		
+		return milli;
 	}
 
 }

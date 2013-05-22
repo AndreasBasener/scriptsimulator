@@ -3,6 +3,7 @@ package org.livingplace.scriptsimulator.script.entry;
 
 import org.joda.time.Period;
 import org.livingplace.scriptsimulator.script.listener.StorageEntryListener;
+import org.livingplace.scriptsimulator.script.listener.writerlistener.StorageWriterListener;
 
 import com.google.gson.Gson;
 
@@ -73,10 +74,10 @@ public class StorageEntry extends ScriptEntry
 	@Override
 	public void initDefaultListener(String activeMQip, String mongoDBip, Gson gson)
 	{
-		if (listenerList.getListenerCount() == 0)
-			this.addEntryListener(new StorageEntryListener(activeMQip,
-															mongoDBip,
-															gson));
+		this.addEntryListener(new StorageEntryListener(activeMQip,
+														mongoDBip,
+														gson));
+		this.addEntryListener(new StorageWriterListener(activeMQip, mongoDBip, gson));
 	}
 	/**
 	 * @return the storageID

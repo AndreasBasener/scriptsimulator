@@ -9,6 +9,7 @@ import org.livingplace.scriptsimulator.Point3D;
 import org.livingplace.scriptsimulator.script.json.saveload.SLPoint3D;
 import org.livingplace.scriptsimulator.script.json.saveload.SLUbisenseMockupDataConverter;
 import org.livingplace.scriptsimulator.script.listener.UbisenseMockupEntryListener;
+import org.livingplace.scriptsimulator.script.listener.writerlistener.UbisenseWriterListener;
 
 import com.Ostermiller.util.CSVParser;
 import com.google.gson.Gson;
@@ -154,6 +155,15 @@ public class UbisenseMockupEntry extends ScriptEntry
 //		System.out.println(this.getClass().getSimpleName() + " beendet/terminiert");
 	}
 
+	@Override
+	public long getExecutionTime()
+	{
+		if(currentMockupData != null)
+			return currentMockupData.getTime();
+		else
+			return super.getExecutionTime();
+	}
+	
 	public String getFileName()
 	{
 		return fileName;
@@ -218,9 +228,10 @@ public class UbisenseMockupEntry extends ScriptEntry
 	@Override
 	public void initDefaultListener(String activeMQip, String mongoDBip, Gson gson)
 	{
-		if (listenerList.getListenerCount() == 0)
-			this.addEntryListener(new UbisenseMockupEntryListener(	activeMQip,
-																	mongoDBip,
-																	gson));
+		this.addEntryListener(new UbisenseMockupEntryListener(	activeMQip,
+																mongoDBip,
+																gson));
+		
+		this.addEntryListener(new UbisenseWriterListener(activeMQip, mongoDBip, gson));
 	}
 }

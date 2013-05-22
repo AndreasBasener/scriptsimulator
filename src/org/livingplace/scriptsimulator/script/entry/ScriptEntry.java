@@ -368,6 +368,15 @@ public class ScriptEntry implements Scriptable
 		return instanceCount++;
 	}
 
+
+	@Override
+	public long getExecutionTime() {
+		long milli = startDate.getMillis();
+		milli += offset.toStandardDuration().getMillis();
+		
+		return milli;
+	}
+	
 	@Override
 	public synchronized void setJSONVersion(String version)
 	{
@@ -431,5 +440,6 @@ public class ScriptEntry implements Scriptable
 	public boolean getSendTime() {
 		return this.sendTime;
 	}
+
 
 }

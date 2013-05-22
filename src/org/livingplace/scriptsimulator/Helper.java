@@ -163,6 +163,8 @@ public class Helper
 	 */
 	public static final String	DEFAULT_ENTRY_DESCRIPTION	= "Beschreibung";
 
+	public static final String MESSAGEFILEWRITER_FILENAME = "output.csv";
+	
 	/**
 	 * Generates and returns a new Random integer.
 	 * 

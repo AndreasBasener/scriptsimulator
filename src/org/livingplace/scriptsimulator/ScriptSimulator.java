@@ -418,6 +418,8 @@ public class ScriptSimulator
 					@Override
 					public void widgetSelected(SelectionEvent e)
 					{
+						MessageFileWriter.clear();
+						
 						script.setSpeed(gui.getscriptSpeedSpinner().getSelection());
 						script.setDeviation(new Deviation(gui.getDeviationSpinner().getSelection() / 100.));
 						script.setSendTime(gui.sendTime());
@@ -673,5 +675,6 @@ public class ScriptSimulator
 	public void stopScriptSimulator()
 	{
 		script.terminateEntry();
+		MessageFileWriter.close();
 	}
 }

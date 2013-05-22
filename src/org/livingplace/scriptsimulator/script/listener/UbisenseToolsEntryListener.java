@@ -62,37 +62,8 @@ public class UbisenseToolsEntryListener extends EntryJsonListener
 		String s = null;
 
 		s = gson.toJson(entry.getUbisenseData());
-		
-//		switch (entry.getUbiToolType())
-//		{
-//		case PUNKT:
-//			s = punktCase(entry);
-//			break;
-//		case LINIE:
-//			s = linieCase(entry);
-//			break;
-//		case KREIS:
-//			s = kreisCase(entry);
-//			break;
-//		default:
-//			break;
-//		}
 
 		sendJSONtoActiveMQ(s);
-	}
-
-	private String punktCase(UbisenseToolsEntry entry)
-	{
-//		return gson.toJson(entry.getUbisenseData());
-		return entry.getUbisenseData().toJson();
-	}
-	private String linieCase(UbisenseToolsEntry entry)
-	{
-		return entry.getUbisenseData().toJson();
-	}
-	private String kreisCase(UbisenseToolsEntry entry)
-	{
-		return entry.getUbisenseData().toJson();
 	}
 
 }

@@ -27,6 +27,8 @@ public interface Scriptable extends Runnable, Serializable, Comparable<Scriptabl
 	public void setJSONId(String id);
 
 	public String getJSONId();
+	
+	public long getExecutionTime();
 
 	/**
 	 * Signals the Scripatble Thread to terminate and to disconnect all Listeners.

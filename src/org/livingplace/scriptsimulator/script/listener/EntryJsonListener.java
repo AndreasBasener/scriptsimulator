@@ -26,7 +26,7 @@ public class EntryJsonListener implements EntryListener
 
 	protected LPPublisher	lpPublisher;
 
-	Gson					gson;
+	protected Gson			gson;
 
 	protected EntryJsonListener()
 	{

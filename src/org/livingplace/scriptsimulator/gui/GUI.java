@@ -361,6 +361,7 @@ public class GUI extends ApplicationWindow
 
 		sendTimeButton = new Button(configComposite, SWT.CHECK);
 		sendTimeButton.setText("Zeit mitsenden");
+		sendTimeButton.setSelection(true);
 		griddata= new GridData();
 		griddata.horizontalSpan = 8;
 		sendTimeButton.setLayoutData(griddata);
