@@ -83,7 +83,8 @@ public class UbisenseMockupEntryListener extends EntryJsonListener
 		
 		data.setPosition(position);
 		
-		String s = gson.toJson(entry.getCurrentMockupData());
+//		String s = gson.toJson(entry.getCurrentMockupData());
+		String s = gson.toJson(data);
 		
 		sendJSONtoActiveMQ(s);
 	}

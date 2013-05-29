@@ -12,7 +12,6 @@ import org.joda.time.Duration;
 import org.joda.time.Period;
 import org.livingplace.scriptsimulator.Deviation;
 import org.livingplace.scriptsimulator.Helper;
-import org.livingplace.scriptsimulator.MessageFileWriter;
 import org.livingplace.scriptsimulator.script.exceptions.IllegalSpeedValueException;
 import org.livingplace.scriptsimulator.script.listener.EntryListener;
 
@@ -73,6 +72,8 @@ public class Script implements Scriptable
 	 * no parent <code>Script</code> is available, then this field is not used.
 	 */
 	private Period				offset;
+	
+	private Period				parentOffset;
 
 	/**
 	 * Flag to signal this <code>Script</code> to stop thread-execution.
@@ -207,6 +208,7 @@ public class Script implements Scriptable
 			entry.setSpeed(this.speed);
 			entry.setDeviation(this.deviation);
 			entry.setSendTime(this.sendTime);
+			entry.setParentOffset(offset);
 
 			Thread t = new Thread(	threatGroup,
 									entry,
@@ -255,7 +257,7 @@ public class Script implements Scriptable
 									stopDT);
 		System.out.println("Skript \""+ name +"\" beendet. Ausführungszeit: " + dur);
 		
-		MessageFileWriter.flushBuffer();
+//		MessageFileWriter.flushBuffer();
 	}
 
 	/**
@@ -548,6 +550,16 @@ public class Script implements Scriptable
 		milli += offset.toStandardDuration().getMillis();
 		
 		return milli;
+	}
+
+	@Override
+	public void setParentOffset(Period offset) {
+		this.parentOffset = offset;
+	}
+
+	@Override
+	public Period getParentOffset() {
+		return parentOffset;
 	}
 
 }

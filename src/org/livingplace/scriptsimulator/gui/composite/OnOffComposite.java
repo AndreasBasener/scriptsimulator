@@ -106,6 +106,7 @@ public class OnOffComposite extends Composite implements ScriptableFactory
 
 		OnOffEntry entry = (OnOffEntry) scriptable;
 		this.setDurationValue(entry.getDuration());
+		actionCombo.setText(entry.getAction().toString());
 	}
 
 }

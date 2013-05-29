@@ -2,6 +2,7 @@ package org.livingplace.scriptsimulator.script.entry;
 
 import org.joda.time.Period;
 import org.livingplace.scriptsimulator.script.listener.DoorBellEntryListener;
+import org.livingplace.scriptsimulator.script.listener.writerlistener.DoorBellWriterListener;
 
 import com.google.gson.Gson;
 
@@ -32,10 +33,13 @@ public class DoorBellEntry extends ScriptEntry
 	@Override
 	public void initDefaultListener(String activeMQip, String mongoDBip, Gson gson)
 	{
-		if (listenerList.getListenerCount() == 0)
-			this.addEntryListener(new DoorBellEntryListener(activeMQip,
+		if (listenerList.getListenerCount() > 0)
+			return;
+			
+		this.addEntryListener(new DoorBellEntryListener(activeMQip,
 															mongoDBip,
 															gson));
+		this.addEntryListener(new DoorBellWriterListener());
 	}
 
 }

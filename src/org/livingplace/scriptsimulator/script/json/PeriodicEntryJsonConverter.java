@@ -38,6 +38,7 @@ public class PeriodicEntryJsonConverter implements JsonSerializer<PeriodicEntry>
 			long milli = src.getStartDate().getMillis();
 			milli += src.getOffset().toStandardDuration().getMillis();
 			milli += src.getPeriod() * src.getCount();
+			milli += src.getParentOffset().toStandardDuration().getMillis();
 			object.addProperty("time", milli);
 		}
 		object.addProperty(	"version",

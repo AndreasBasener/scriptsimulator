@@ -30,6 +30,7 @@ JsonDeserializer<MediaEntry>{
 		if(src.getSendTime()){
 			long milli = src.getStartDate().getMillis();
 			milli += src.getOffset().toStandardDuration().getMillis();
+			milli += src.getParentOffset().toStandardDuration().getMillis();
 			object.addProperty("time", milli);
 		}
 		object.addProperty(	"version",

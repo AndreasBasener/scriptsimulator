@@ -100,6 +100,7 @@ public class PeriodicComposite extends Composite implements ScriptableFactory
 
 		PeriodicEntry entry = (PeriodicEntry) scriptable;
 		this.setPeriodValue(entry.getPeriod());
+		this.repeatSpinner.setSelection(entry.getRepeats());
 	}
 
 }

@@ -110,8 +110,8 @@ public class UbisenseComposite extends Composite implements ScriptableFactory
 		// comp.setOffset(scriptable.getOffset());
 		// comp.setEntryName(scriptable.getName());
 		// comp.setdescription(scriptable.getDescription());
-
-		this.filename.setText("N/A");
+		UbisenseEntry entry = (UbisenseEntry) scriptable;
+		this.filename.setText(entry.getFileName());
 	}
 
 }

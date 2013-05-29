@@ -68,7 +68,11 @@ public class BedComposite extends Composite implements ScriptableFactory
 	@Override
 	public void setToScriptable(Scriptable scriptable)
 	{
-		// TODO Auto-generated method stub
+		if(!(scriptable instanceof BedEntry))
+				return;
+		BedEntry entry = (BedEntry) scriptable;
+		
+		stateCombo.setText(entry.getSleepState().toString());
 
 	}
 

@@ -60,7 +60,11 @@ public class MoodComposite extends Composite implements ScriptableFactory{
 
 	@Override
 	public void setToScriptable(Scriptable scriptable) {
-		// TODO Auto-generated method stub
+
+		MoodEntry entry = (MoodEntry) scriptable;
+		
+		this.moodIDSpinner.setSelection(entry.getMoodID());
+		this.topicText.setText(entry.getTopicName());
 		
 	}
 

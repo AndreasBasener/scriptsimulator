@@ -84,6 +84,9 @@ public interface Scriptable extends Runnable, Serializable, Comparable<Scriptabl
 	// public void setOffset(Offset offset);
 	public void setOffset(Period offset);
 
+	public void setParentOffset(Period offset);
+	public Period getParentOffset();
+	
 	/**
 	 * Gets the playing speed of the Scriptable
 	 * 

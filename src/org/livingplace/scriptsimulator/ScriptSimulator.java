@@ -5,7 +5,13 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintStream;
+
 import org.apache.kahadb.util.ByteArrayOutputStream;
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.FileAppender;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.SimpleLayout;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -79,6 +85,10 @@ public class ScriptSimulator
 	 */
 	private ScriptComposite	scriptComp;
 
+	private static Logger logger = Logger.getRootLogger();
+	
+	private PrintStream backupOutStream;
+	
 	/**
 	 * Creates new <code>ScriptSimulator</code> instance
 	 */
@@ -97,9 +107,22 @@ public class ScriptSimulator
 	 */
 	public static void main(String[] args)
 	{
+		try {
+		      SimpleLayout layout = new SimpleLayout();
+		      ConsoleAppender consoleAppender = new ConsoleAppender( layout );
+		      logger.addAppender( consoleAppender );
+		      FileAppender fileAppender = new FileAppender( layout, "logs/MeineLogDatei.log", false );
+			  logger.addAppender( fileAppender );
+			  // ALL | DEBUG | INFO | WARN | ERROR | FATAL | OFF:
+			  logger.setLevel( Level.WARN );
+		} catch( Exception ex ) {
+		  System.out.println( ex );
+		}
+		logger.info("Scriptsimulator gestartet");
 		ScriptSimulator simulator = new ScriptSimulator();
 		simulator.init();
 		simulator.stopScriptSimulator();
+		logger.info("Scriptsimulator beendet");
 	}
 
 	/**
@@ -190,6 +213,8 @@ public class ScriptSimulator
 													new SLSensorEntryConverter());
 		saveloadScriptBuilder.registerTypeAdapter(	SingleEntry.class,
 													new SLSingleEntryConverter());
+		saveloadScriptBuilder.registerTypeAdapter(	SleepEntry.class,
+													new SLSleepEntryJsonConverter());
 		saveloadScriptBuilder.registerTypeAdapter(	StorageEntry.class,
 													new SLStorageEntryConverter());
 		saveloadScriptBuilder.registerTypeAdapter(	TemperaturSensorEntry.class,
@@ -246,6 +271,7 @@ public class ScriptSimulator
 			@Override
 			public void run()
 			{
+				backupOutStream = System.out;
 				PrintStream ps = new PrintStream(new TextOutputStream(	new ByteArrayOutputStream(),
 																		gui.getStyledTextConsole()));
 
@@ -290,6 +316,9 @@ public class ScriptSimulator
 				gui.addScriptableType(	SensorEntry.class.getSimpleName(),
 										new SensorComposite(comp,
 															style));
+				gui.addScriptableType(	SleepEntry.class.getSimpleName(),
+										new SleepComposite(comp,
+											style));
 				gui.addScriptableType(	StorageEntry.class.getSimpleName(),
 										new StorageComposite(comp,
 															style));
@@ -305,11 +334,11 @@ public class ScriptSimulator
 				gui.addScriptableType(	UbisenseToolsEntry.class.getSimpleName(),
 										new UbisenseToolsComposite(	comp,
 																	style));
-				gui.addScriptableType(	WindowEntry.class.getSimpleName(),
-										new WindowComposite(comp,
-															style));
 				gui.addScriptableType(	WaterEntry.class.getSimpleName(),
 										new WaterComposite(	comp,
+															style));
+				gui.addScriptableType(	WindowEntry.class.getSimpleName(),
+										new WindowComposite(comp,
 															style));
 
 				scriptComp = new ScriptComposite(	comp,
@@ -499,6 +528,13 @@ public class ScriptSimulator
 						}
 					}
 				});
+				gui.getFlushBufferButton().addSelectionListener(new SelectionAdapter() {
+					@Override
+					public void widgetSelected(SelectionEvent e)
+					{
+						MessageFileWriter.flushBuffer();
+					}
+				});
 				gui.getHourSpinner().addModifyListener(new ModifyListener() {
 
 					@Override
@@ -674,7 +710,10 @@ public class ScriptSimulator
 	 */
 	public void stopScriptSimulator()
 	{
+		System.setOut(backupOutStream);
+
 		script.terminateEntry();
 		MessageFileWriter.close();
+//		System.out.println("alles gestoppt");
 	}
 }

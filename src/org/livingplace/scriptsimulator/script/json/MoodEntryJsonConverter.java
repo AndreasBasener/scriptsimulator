@@ -3,7 +3,6 @@ package org.livingplace.scriptsimulator.script.json;
 import java.lang.reflect.Type;
 
 import org.livingplace.scriptsimulator.Helper;
-import org.livingplace.scriptsimulator.script.entry.AlarmEntry;
 import org.livingplace.scriptsimulator.script.entry.MoodEntry;
 
 
@@ -33,6 +32,7 @@ JsonDeserializer<MoodEntry>{
 		if(src.getSendTime()){
 			long milli = src.getStartDate().getMillis();
 			milli += src.getOffset().toStandardDuration().getMillis();
+			milli += src.getParentOffset().toStandardDuration().getMillis();
 			object.addProperty("time", milli);
 		}
 		object.addProperty(	"version",

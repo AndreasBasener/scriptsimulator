@@ -3,6 +3,7 @@ package org.livingplace.scriptsimulator.script.entry;
 import org.joda.time.Period;
 import org.livingplace.scriptsimulator.Helper;
 import org.livingplace.scriptsimulator.script.listener.DoorEntryListener;
+import org.livingplace.scriptsimulator.script.listener.writerlistener.DoorWriterListener;
 
 import com.google.gson.Gson;
 
@@ -78,10 +79,13 @@ public class DoorEntry extends ScriptEntry
 	@Override
 	public void initDefaultListener(String activeMQip, String mongoDBip, Gson gson)
 	{
-		if (listenerList.getListenerCount() == 0)
-			this.addEntryListener(new DoorEntryListener(activeMQip,
+		if (listenerList.getListenerCount() > 0)
+			return;
+			
+		this.addEntryListener(new DoorEntryListener(activeMQip,
 														mongoDBip,
 														gson));
+		this.addEntryListener(new DoorWriterListener());
 	}
 
 	/**

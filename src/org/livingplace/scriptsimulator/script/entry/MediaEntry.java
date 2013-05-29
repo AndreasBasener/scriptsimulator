@@ -27,8 +27,10 @@ public class MediaEntry extends ScriptEntry{
 	@Override
 	public void initDefaultListener(String activeMQip, String mongoDBip, Gson gson)
 	{
-		if (listenerList.getListenerCount() == 0)
-			this.addEntryListener(new EntryJsonListener(	activeMQip,
+		if (listenerList.getListenerCount() > 0)
+			return;
+			
+		this.addEntryListener(new EntryJsonListener(	activeMQip,
 															mongoDBip,
 															gson,
 															Helper.MEDIA_ENTRY_TOPIC_NAME));

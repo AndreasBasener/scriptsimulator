@@ -176,6 +176,8 @@ public class GUI extends ApplicationWindow
 	 */
 	private Button			newScriptButton;
 	
+	private Button			flushBufferButton;
+	
 	/**
 	 * Checkbox to indicate, whether the current time should be includen in JSON messages or not.
 	 */
@@ -484,7 +486,7 @@ public class GUI extends ApplicationWindow
 											SWT.BORDER);
 		scriptSpeedSpinner.setSelection(1);
 		scriptSpeedSpinner.setMinimum(0);
-		scriptSpeedSpinner.setMaximum(100);
+		scriptSpeedSpinner.setMaximum(999);
 		scriptSpeedSpinner
 				.setToolTipText("Ist der Wert gleich 0, werden alle Eintraege sofort ausgefuehrt.\n"
 								+ "Offset, und Andere, werden ignoriert.\n\n"
@@ -621,6 +623,10 @@ public class GUI extends ApplicationWindow
 										SWT.NONE);
 		newScriptButton.setText("New");
 		newScriptButton.setLayoutData(new RowData());
+		
+		flushBufferButton = new Button(playComposite, SWT.NONE);
+		flushBufferButton.setText("flush Buffer");
+		flushBufferButton.setLayoutData(new RowData());
 
 		// ******** Script Table ******************
 		Composite tableGroup = new Composite(	entryTabWrapper,
@@ -1132,6 +1138,20 @@ public class GUI extends ApplicationWindow
 	public void setNewScriptButton(Button newButton)
 	{
 		this.newScriptButton = newButton;
+	}
+
+	/**
+	 * @return the flushBufferButton
+	 */
+	public Button getFlushBufferButton() {
+		return flushBufferButton;
+	}
+
+	/**
+	 * @param flushBufferButton the flushBufferButton to set
+	 */
+	public void setFlushBufferButton(Button flushBufferButton) {
+		this.flushBufferButton = flushBufferButton;
 	}
 
 	/**

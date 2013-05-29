@@ -5,7 +5,6 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Spinner;
 import org.eclipse.swt.widgets.Text;
 import org.livingplace.scriptsimulator.Helper;
 import org.livingplace.scriptsimulator.ScriptableFactory;
@@ -49,7 +48,9 @@ public class MediaComposite extends Composite implements ScriptableFactory{
 
 	@Override
 	public void setToScriptable(Scriptable scriptable) {
-		// TODO Auto-generated method stub
+		MediaEntry entry = (MediaEntry) scriptable;
+		
+		this.urlText.setText(entry.getUrl());
 		
 	}
 

@@ -31,6 +31,7 @@ public class OnOffEntryJsonConverter implements JsonDeserializer<OnOffEntry>,
 			long milli = src.getStartDate().getMillis();
 			milli += src.getOffset().toStandardDuration().getMillis();
 			milli += src.isDone() ? src.getDuration() : 0;
+			milli += src.getParentOffset().toStandardDuration().getMillis();
 			object.addProperty("time", milli);
 		}
 		object.addProperty(	"version",

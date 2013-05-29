@@ -289,8 +289,10 @@ public class SensorEntry extends ScriptEntry
 	@Override
 	public void initDefaultListener(String activeMQip, String mongoDBip, Gson gson)
 	{
-		if (listenerList.getListenerCount() == 0)
-			this.addEntryListener(new SensorEntryListener(	activeMQip,
+		if (listenerList.getListenerCount() > 0)
+			return;
+			
+		this.addEntryListener(new SensorEntryListener(	activeMQip,
 															mongoDBip,
 															gson));
 	}

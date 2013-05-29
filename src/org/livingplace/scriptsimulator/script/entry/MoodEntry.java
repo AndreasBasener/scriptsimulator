@@ -41,8 +41,10 @@ public class MoodEntry extends ScriptEntry{
 	@Override
 	public void initDefaultListener(String activeMQip, String mongoDBip, Gson gson)
 	{
-		if (listenerList.getListenerCount() == 0)
-			this.addEntryListener(new MoodEntryListener(activeMQip,
+		if (listenerList.getListenerCount() > 0)
+			return;
+			
+		this.addEntryListener(new MoodEntryListener(activeMQip,
 															mongoDBip,
 															gson,
 															topicName));

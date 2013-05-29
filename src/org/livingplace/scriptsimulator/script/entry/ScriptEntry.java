@@ -47,6 +47,9 @@ public class ScriptEntry implements Scriptable
 	 * Offset of the ScriptEntry relative to the startdate of the Script.
 	 */
 	protected Period			offset;
+	
+	protected Period			parentOffset;
+	
 	/**
 	 * Name of the ScriptEntry
 	 */
@@ -343,8 +346,10 @@ public class ScriptEntry implements Scriptable
 	@Override
 	public void initDefaultListener(String activeMQip, String mongoDBip, Gson gson)
 	{
-		if (listenerList.getListenerCount() == 0)
-			this.addEntryListener(new EntryJsonListener(activeMQip,
+		if (listenerList.getListenerCount() > 0)
+			return;
+			
+		this.addEntryListener(new EntryJsonListener(activeMQip,
 														mongoDBip,
 														gson));
 
@@ -373,6 +378,7 @@ public class ScriptEntry implements Scriptable
 	public long getExecutionTime() {
 		long milli = startDate.getMillis();
 		milli += offset.toStandardDuration().getMillis();
+		milli += parentOffset.toStandardDuration().getMillis();
 		
 		return milli;
 	}
@@ -439,6 +445,16 @@ public class ScriptEntry implements Scriptable
 	@Override
 	public boolean getSendTime() {
 		return this.sendTime;
+	}
+
+	@Override
+	public void setParentOffset(Period offset) {
+		this.parentOffset = offset;
+	}
+
+	@Override
+	public Period getParentOffset() {
+		return parentOffset;
 	}
 
 

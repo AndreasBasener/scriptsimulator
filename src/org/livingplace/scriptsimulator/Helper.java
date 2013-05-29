@@ -177,4 +177,11 @@ public class Helper
 
 		return globalRandom.nextInt();
 	}
+	public static int getRandomInt(int number)
+	{
+		if (globalRandom == null)
+			globalRandom = new Random();
+
+		return globalRandom.nextInt(number);
+	}
 }

@@ -129,6 +129,7 @@ public class UbisenseMockupEntry extends ScriptEntry
 			setCurrentMockupData(udata.getMockupData());
 			long millis = startDate.getMillis();
 			millis += offset.toStandardDuration().getMillis();
+			millis += parentOffset.toStandardDuration().getMillis();
 			millis += nexttime;
 			currentMockupData.setTime(millis);
 			currentMockupData.setSendTime(this.sendTime);
@@ -228,6 +229,9 @@ public class UbisenseMockupEntry extends ScriptEntry
 	@Override
 	public void initDefaultListener(String activeMQip, String mongoDBip, Gson gson)
 	{
+		if (listenerList.getListenerCount() > 0)
+			return;
+		
 		this.addEntryListener(new UbisenseMockupEntryListener(	activeMQip,
 																mongoDBip,
 																gson));

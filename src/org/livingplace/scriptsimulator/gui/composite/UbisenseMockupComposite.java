@@ -38,8 +38,8 @@ public class UbisenseMockupComposite extends UbisenseComposite implements Script
 		// comp.setOffset(scriptable.getOffset());
 		// comp.setEntryName(scriptable.getName());
 		// comp.setdescription(scriptable.getDescription());
-
-		this.filename.setText("N/A");
+		UbisenseMockupEntry entry = (UbisenseMockupEntry) scriptable;
+		this.filename.setText(entry.getFileName());
 	}
 
 }

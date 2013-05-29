@@ -34,29 +34,30 @@ public class EntryJsonListener implements EntryListener
 
 	public EntryJsonListener(String amqip, String mongoip, Gson gson)
 	{
-		this.gson = gson;
-
-		ConnectionSettings settings = new ConnectionSettings();
-		settings.amq_ip = amqip;
-		settings.mongo_ip = mongoip;
-
-		try
-		{
-			this.lpPublisher = new LPPublisher(	Helper.DEFAULT_TEST_TOPIC,
-												settings);
-		}
-		catch (UnknownHostException e)
-		{
-			e.printStackTrace();
-		}
-		catch (MongoException e)
-		{
-			e.printStackTrace();
-		}
-		catch (JMSException e)
-		{
-			e.printStackTrace();
-		}
+		this(amqip,mongoip,gson,Helper.DEFAULT_TEST_TOPIC);
+//		this.gson = gson;
+//
+//		ConnectionSettings settings = new ConnectionSettings();
+//		settings.amq_ip = amqip;
+//		settings.mongo_ip = mongoip;
+//
+//		try
+//		{
+//			this.lpPublisher = new LPPublisher(	Helper.DEFAULT_TEST_TOPIC,
+//												settings);
+//		}
+//		catch (UnknownHostException e)
+//		{
+//			e.printStackTrace();
+//		}
+//		catch (MongoException e)
+//		{
+//			e.printStackTrace();
+//		}
+//		catch (JMSException e)
+//		{
+//			e.printStackTrace();
+//		}
 
 	}
 	
@@ -118,9 +119,14 @@ public class EntryJsonListener implements EntryListener
 	@Override
 	public void disconnect()
 	{
-		if (lpPublisher != null)
+		if (lpPublisher != null){
 			lpPublisher.disconnect();
-
+//			System.out.println(this.getClass().getSimpleName() + ": disconnected");
+		}
+		else
+		{
+//			System.out.println(this.getClass().getSimpleName() + ": not disconnected");
+		}
 	}
 
 }

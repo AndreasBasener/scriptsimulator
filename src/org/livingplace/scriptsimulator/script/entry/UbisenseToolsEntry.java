@@ -117,6 +117,7 @@ public class UbisenseToolsEntry extends ScriptEntry
 												1.6));
 		long millis = startDate.getMillis();
 		millis += offset.toStandardDuration().getMillis();
+		millis += parentOffset.toStandardDuration().getMillis();
 
 		while (elapsedTime < toolDuration && !this.terminate)
 		{
@@ -159,6 +160,7 @@ public class UbisenseToolsEntry extends ScriptEntry
 		
 		long millis = startDate.getMillis();
 		millis += offset.toStandardDuration().getMillis();
+		millis += parentOffset.toStandardDuration().getMillis();
 		
 		// Steigung m und Achsenabschnitt b berechnen
 //		double m = 0.;
@@ -228,6 +230,7 @@ public class UbisenseToolsEntry extends ScriptEntry
 
 		long millis = startDate.getMillis();
 		millis += offset.toStandardDuration().getMillis();
+		millis += parentOffset.toStandardDuration().getMillis();
 		
 		//Radianten des Winkels berechnen
 		double radiant = Math.toRadians(arc);
@@ -283,6 +286,9 @@ public class UbisenseToolsEntry extends ScriptEntry
 	@Override
 	public void initDefaultListener(String activeMQip, String mongoDBip, Gson gson)
 	{
+		if (listenerList.getListenerCount() > 0)
+			return;
+		
 		this.addEntryListener(new UbisenseToolsEntryListener(	activeMQip,
 																mongoDBip,
 																gson));

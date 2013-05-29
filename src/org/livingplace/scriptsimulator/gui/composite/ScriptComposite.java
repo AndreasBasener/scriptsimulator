@@ -75,6 +75,7 @@ public class ScriptComposite extends Composite implements ScriptableFactory
 	public Scriptable generateScriptable(EntryComposite comp)
 	{
 //		System.out.println("Hier" + script.getName());
+		script.setOffset(comp.getOffset());
 		return script;
 	}
 

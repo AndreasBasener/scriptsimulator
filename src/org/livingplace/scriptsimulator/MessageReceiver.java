@@ -55,6 +55,7 @@ public class MessageReceiver
 			// Setup a message publisher to send messages to the topic
 			subscriber = newSession.createSubscriber(topic);
 
+			@SuppressWarnings("resource")
 			PrintWriter writer = new PrintWriter("UbisenseTestData.csv");
 
 			System.out.println("Alles fertig...");

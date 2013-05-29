@@ -61,8 +61,10 @@ public class MessageFileWriter {
 		buffer.add(new WriterBufferEntry(key, value));
 	}
 	
-	public static void flushBuffer()
+	public synchronized static void flushBuffer()
 	{
+		if(buffer == null || buffer.size() == 0)
+			return;
 		Collections.sort(buffer);
 		for(WriterBufferEntry w: buffer)
 		{
@@ -93,17 +95,17 @@ public class MessageFileWriter {
 		}
 	}
 	
-	/**
-	 * @return the writer
-	 */
-	public static PrintWriter getWriter() {
-		return writer;
-	}
-
-	/**
-	 * @param writer the writer to set
-	 */
-	public static void setWriter(PrintWriter writer) {
-		MessageFileWriter.writer = writer;
-	}
+//	/**
+//	 * @return the writer
+//	 */
+//	public static PrintWriter getWriter() {
+//		return writer;
+//	}
+//
+//	/**
+//	 * @param writer the writer to set
+//	 */
+//	public static void setWriter(PrintWriter writer) {
+//		MessageFileWriter.writer = writer;
+//	}
 }

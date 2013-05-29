@@ -3,6 +3,7 @@ package org.livingplace.scriptsimulator.script.entry;
 import org.joda.time.Period;
 import org.livingplace.scriptsimulator.Helper;
 import org.livingplace.scriptsimulator.script.listener.BedEntryListener;
+import org.livingplace.scriptsimulator.script.listener.writerlistener.BedWriterListener;
 
 import com.google.gson.Gson;
 
@@ -54,10 +55,13 @@ public class BedEntry extends ScriptEntry
 	@Override
 	public void initDefaultListener(String activeMQip, String mongoDBip, Gson gson)
 	{
-		if (listenerList.getListenerCount() == 0)
-			this.addEntryListener(new BedEntryListener(	activeMQip,
+		if (listenerList.getListenerCount() > 0)
+			return;
+		
+		this.addEntryListener(new BedEntryListener(	activeMQip,
 														mongoDBip,
 														gson));
+		this.addEntryListener(new BedWriterListener());
 	}
 
 	/**

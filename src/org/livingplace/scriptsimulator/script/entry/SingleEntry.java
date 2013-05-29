@@ -36,8 +36,10 @@ public class SingleEntry extends ScriptEntry
 	@Override
 	public synchronized void initDefaultListener(String activeMQip, String mongoDBip, Gson gson)
 	{
-		if (listenerList.getListenerCount() == 0)
-			this.addEntryListener(new SingleEntryListener(	activeMQip,
+		if (listenerList.getListenerCount() > 0)
+			return;
+			
+		this.addEntryListener(new SingleEntryListener(	activeMQip,
 															mongoDBip,
 															gson));
 
