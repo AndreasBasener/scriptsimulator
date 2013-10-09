@@ -146,6 +146,8 @@ public class ScriptSimulator
 										new BedEntryJsonConverter());
 		gsonBuilder.registerTypeAdapter(BlindsEntry.class,
 										new BlindsEntryJsonConverter());
+		gsonBuilder.registerTypeAdapter(CouchEntry.class,
+										new CouchEntryJsonConverter());
 		gsonBuilder.registerTypeAdapter(DoorEntry.class,
 										new DoorEntryJsonConverter());
 		gsonBuilder.registerTypeAdapter(DoorBellEntry.class,
@@ -193,6 +195,8 @@ public class ScriptSimulator
 													new SLBedEntryJsonConverter());
 		saveloadScriptBuilder.registerTypeAdapter(	BlindsEntry.class,
 													new SLBlindsEntryConverter());
+		saveloadScriptBuilder.registerTypeAdapter(	CouchEntry.class,
+													new SLCouchEntryJsonConverter());
 		saveloadScriptBuilder.registerTypeAdapter(	DoorBellEntry.class,
 													new SLDoorBellEntryJsonConverter());
 		saveloadScriptBuilder.registerTypeAdapter(	DoorEntry.class,
@@ -288,6 +292,9 @@ public class ScriptSimulator
 															style));
 				gui.addScriptableType(	BlindsEntry.class.getSimpleName(),
 										new BlindsComposite(	comp,
+															style));
+				gui.addScriptableType(	CouchEntry.class.getSimpleName(),
+										new CouchComposite(	comp,
 															style));
 				gui.addScriptableType(	DoorBellEntry.class.getSimpleName(),
 										new DoorBellComposite(	comp,
@@ -489,6 +496,22 @@ public class ScriptSimulator
 					public void widgetSelected(SelectionEvent e)
 					{
 						loadScript();
+						
+						File file = new File("scriptout.csv");
+						try
+						{
+							FileWriter writer = new FileWriter(file);
+							for(Scriptable s: gui.getScript().getEntryList())
+							{
+								writer.write(s.getClass().getSimpleName() + ";" + s.getName() + ";" + s.getDescription() + "\n");
+							}
+							
+							writer.close();
+						}
+						catch(Exception ex)
+						{
+							
+						}
 					}
 				});
 
