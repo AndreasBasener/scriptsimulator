@@ -1,0 +1,11 @@
+UbisenseMockupEntry;Küche zu Lounge;von Küche zu Lounge gehen
+AlarmEntry;Telefon;Freund 1
+UbisenseMockupEntry;Lounge zu Kleiderschrank;von Lounge zu Kleiderschrank gehen
+StorageEntry;Kleiderschrank;Kleiderschrank öffnen
+StorageEntry;Kleiderschrank;Sportklamotten entnommen
+StorageEntry;Kleiderschrank;Kleiderschrank schließen
+UbisenseMockupEntry;Kleiderschrank zu Tür;von Kleiderschrank zu Tür gehen
+DoorEntry;Haustür;Haustür öffnen
+DoorEntry;Haustür;Haustür schließen
+UbisenseMockupEntry;Haustür zu Badezimmer;von Hautür zu Badezimmer gehen
+UbisenseMockupEntry;Badezimmer zu Lounge;von Badezimmer zu Lounge gehen

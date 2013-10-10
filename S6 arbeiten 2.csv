@@ -1,0 +1,28 @@
+AlarmEntry;Telefon;Arbeitskontakt 1
+AlarmEntry;Telefon;Arbeitskontakt 3
+UbisenseMockupEntry;Esstisch zu Küche;von Esstisch zu Küche gehen
+StorageEntry;Kühlschrank;Kühlschrank öffnen
+StorageEntry;Kühlschrank;Wasserflasche entnehmen
+StorageEntry;Kühlschrank;Kühlschrank schließen
+PowerEntry;Kaffemaschine;Kaffemaschine an
+UbisenseMockupEntry;Küche zu Esstisch;von Küche zu Esstisch gehen
+UbisenseMockupEntry;Esstisch zu Küche;von Esstisch zu Küche gehen
+StorageEntry;Küchenschrank;Küchenschrank öffnen
+StorageEntry;Küchenschrank;Tasse entnehmen
+StorageEntry;Küchenschrank;Küchenschrank schließen
+UbisenseMockupEntry;Küche zu Esstisch;von Küche zu Esstisch gehen
+AlarmEntry;Telefon;Arbeitskontakt 4
+AlarmEntry;Telefon;Arbeitskontakt 2
+AlarmEntry;Telefon;Arbeitskontakt 3
+AlarmEntry;Telefon;Arbeitskontakt 2
+AlarmEntry;Telefon;Arbeitskontakt 1
+UbisenseMockupEntry;Esstisch zu Toilette;von Esstisch zu Toilette gehen
+WaterEntry;Toilettenspülung;Toilettenspülung an
+UbisenseToolsEntry;Bazimmerwaschbecken kalt;Bazimmerwaschbecken kalt aus
+WaterEntry;Bazimmerwaschbecken kalt;Bazimmerwaschbecken kalt an
+WaterEntry;Bazimmerwaschbecken kalt;Bazimmerwaschbecken kalt aus
+UbisenseMockupEntry;Badezimmer zu Esstisch;von Badezimmer zu Esstisch gehen
+WaterEntry;Toilettenspülung;Toilettenspülung aus
+AlarmEntry;Telefon;Arbeitskontakt 3
+AlarmEntry;Telefon;Arbeitskontakt 4
+PowerEntry;Arbeitsrechner;Arbeitsrechner ausschalten

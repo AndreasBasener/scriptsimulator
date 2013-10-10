@@ -1,0 +1,26 @@
+PowerEntry;PowerEntry0;Beschreibung
+AlarmEntry;Telefon;Arbeitskontakt 1
+DoorBellEntry;Türklingel;Postbote
+UbisenseMockupEntry;Esstisch zur Eingangstür;von Esstisch zur Eingangstür gehen
+DoorEntry;Eingangstür;Eingangstür öffnen
+DoorEntry;Eingangstür;Eingangstür schließen
+UbisenseMockupEntry;Eingangstür;Eingangstür schließen
+AlarmEntry;Telefon;Arbeitskontakt 2
+AlarmEntry;Telefon;Arbeitskontakt 3
+AlarmEntry;Telefon;Arbeitskontakt 1
+UbisenseMockupEntry;Esstisch zu Küche;von Esstisch zu Küche gehen
+PowerEntry;Kaffemaschine;Kaffemaschine anstellen
+StorageEntry;Küchenschrank;Küchenschrank öffnen
+StorageEntry;Küchenschrank;Tasse entnehmen
+StorageEntry;Küchenschrank;Küchenschrank schließen
+AlarmEntry;Kaffemaschine;Kaffe fertig
+UbisenseMockupEntry;Küche zu Esstisch;von Küche zu Esstisch gehen
+UbisenseMockupEntry;Esstisch zu Badezimmer;vom Esstisch zum Badezimmer gehen
+WaterEntry;Toilettenspülung;Toilettenspülung auf
+UbisenseToolsEntry;Toilette Spülbecken;von Toilette zum Spülbecken gehen
+WaterEntry;Spülbecken kalt;Hahn auf
+WaterEntry;Toilettenspülung;Toilettenspülung zu
+WaterEntry;Spülbecken kalt;Hahn zu
+UbisenseMockupEntry;Badezimmer zu Esstisch;vom Badezimmer zum Esstisch gehen
+AlarmEntry;Telefon;Arbeitskontakt 3
+AlarmEntry;Telefon;Arbeitskontakt 3

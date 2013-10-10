@@ -1,0 +1,22 @@
+AlarmEntry;Wecker;Aufstehen
+UbisenseMockupEntry;Bett->Toilette;vom Bett zur Toilette gehen
+WaterEntry;Toilettenspülung;Toilettenspülung gedrückt
+UbisenseToolsEntry;Toilette->Waschbecken;von Toilette zu Waschbecken gehen
+WaterEntry;Toilettenspülung;Spülkasten aufgefüllt
+WaterEntry;Händewaschen;Wasserhahn aufdrehen
+WaterEntry;Händewaschen;Wasserhahn zudrehen
+PowerEntry;Rasierer;rasieren Anfang
+PowerEntry;Rasierer;rasieren Ende
+UbisenseToolsEntry;Waschbecken->Dusche;von Waschbecken in Dusche gehen
+WaterEntry;Dusche;Kaltwasser an
+WaterEntry;Dusche;Warmwasser an
+WaterEntry;Dusche;Warmwasser aus
+WaterEntry;Dusche;Kaltwasser aus
+StorageEntry;Handtuch;Handtuch zum abtrocknen genommen
+StorageEntry;Handtuch;Handtuch nach abtrocknen abgelegt
+UbisenseMockupEntry;Dusche->Kleiderschrank;von der Dusche zum Kleiderschrank gehen
+StorageEntry;Kleiderschrank;Kleiderschrank geöffnet
+StorageEntry;Kleiderschrank;Klamotten entnehmen
+StorageEntry;Kleiderschrank;Kleiderschrank schließen
+BlindsEntry;Jalousien;alle Jalousien öffnen
+WindowEntry;Fenster;alle Fenster öffnen

@@ -1,0 +1,29 @@
+UbisenseMockupEntry;in die Küche gehen;von Kleiderschrank in die Küche gehen
+PowerEntry;Kaffemaschine;Kaffemaschine anstellen
+StorageEntry;Küchenschrank;Küchenschrank öffnen
+StorageEntry;Küchenschrank;Teller entnehmen
+StorageEntry;Küchenschrank;Besteck entnehmen
+StorageEntry;Küchenschrank;Brot entnehmen
+UbisenseMockupEntry;Küche zu Esstisch;von Küche zu Esstisch gehen
+UbisenseMockupEntry;Esstisch zu Küche;vom Esstisch zu Küche gehen
+StorageEntry;Küchenschrank;Tasse entnehmen
+StorageEntry;Zeitung hohlen;von Esstisch zur Eingangstür und zurück gehen
+AlarmEntry;Kaffemaschine;Kaffe fertig
+UbisenseMockupEntry;Küche zu Esstisch;von Küche zu Esstisch gehen
+UbisenseMockupEntry;Zeitung hohlen;von Esstisch zur Eingangstür und zurück gehen
+UbisenseMockupEntry;Esstisch zu Küche;vom Esstisch zu Küche gehen
+StorageEntry;Spülmaschine;Spülmaschine öffnen
+StorageEntry;Spülmaschine;Teller hinenstellen
+StorageEntry;Spülmaschine;Tasse hinenstellen
+StorageEntry;Spülmaschine;Besteck hinenstellen
+StorageEntry;Spülmaschine;Spülmaschine schließen
+UbisenseMockupEntry;Küche Badezimmer;von Küche zu Badezimmer gehen
+StorageEntry;Badezimmerregal;Zahnbürste genommen
+WaterEntry;Wasserhahn Badezimmerspülbecken kalt;Hahn aufgedreht
+WaterEntry;Wasserhahn Badezimmerspülbecken kalt;Hahn zugedreht
+StorageEntry;Badezimmerregal;Zahnpasta genommen
+StorageEntry;Badezimmerregal;Zahnpasta zurückgelegt
+UbisenseMockupEntry;Badezimmer Zähneputzen;beim Zähneputzen im Badezimmer auf und ab gehen
+WaterEntry;Wasserhahn Badezimmerspülbecken kalt;Mund nach Zähneputzen ausspülen
+WaterEntry;Wasserhahn Badezimmerspülbecken kalt;Mund nach Zähneputzen ausspülen
+UbisenseMockupEntry;Badezimmer zu Esstisch;vom Badezimmer zum Esstisch gehen

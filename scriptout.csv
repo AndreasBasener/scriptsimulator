@@ -1,0 +1,20 @@
+Script;Schlafen morgens;Schlafphasen 0:00 - 7:00
+AlarmEntry;alarm;wecker
+UbisenseMockupEntry;ubi;ins badezimmer gehen
+Script;Toilette;Toilette benutzen
+Script;Duschen;Duschen
+UbisenseMockupEntry;ubi;zum Kleiderschrank gehen
+Script;ankleiden;ankleiden
+UbisenseMockupEntry;ubi;in Küche gehen
+Script;essen;essen
+UbisenseMockupEntry;ubi;zum Esstisch gehen
+Script;arbeiten;arbeiten
+Script;Touchtisch;Tisch touchen
+UbisenseMockupEntry;ubi;in küche gehen
+Script;essen;essen
+UbisenseMockupEntry;ubi;zur Couch gehen
+Script;fernsehen;fernsehen
+UbisenseMockupEntry;ubi;zum Esstisch gehen
+Script;arbeiten;arbeiten
+UbisenseMockupEntry;ubi;zur Couch gehen
+Script;fernsehen;fernsehen

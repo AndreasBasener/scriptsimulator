@@ -1,0 +1,23 @@
+UbisenseMockupEntry;Esstisch zu Küche;von Esstisch zu Küche gehen
+WaterEntry;Wasserhahn;Wasserhahn aufdrehen
+WaterEntry;Wasserhahn;Wasserhahn zudrehen
+PowerEntry;Wasserkocher;Wasserkocher anschalten
+StorageEntry;Küchenschrank;Küchenschrank öffnen
+StorageEntry;Küchenschrank;Teller entnehmen
+StorageEntry;Küchenschrank;Tasse entnehmen
+StorageEntry;Küchenschrank;Besteck entnehmen
+StorageEntry;Küchenschrank;Brot entnehmen
+StorageEntry;Küchenschrank;Küchenschrank schließen
+StorageEntry;Kühlschrank;Kühlschrank öffnen
+StorageEntry;Kühlschrank;Aufschnitt entnommen
+StorageEntry;Kühlschrank;Butter entnommen
+StorageEntry;Kühlschrank;Kühlschrank schließen
+PowerEntry;Wasserkocher;Wasserkocher aus
+AlarmEntry;Wasserkocher;Wasserkocher fertig
+UbisenseMockupEntry;Küche zu Esstisch;von Küche zu Esstisch gehen
+UbisenseMockupEntry;Esstisch zu Küche;von Esstisch zu Küche gehen
+StorageEntry;Spülmaschine;Spülmaschine öffnen
+StorageEntry;Spülmaschine;Teller reinstellen
+StorageEntry;Spülmaschine;Tasse reinstellen
+StorageEntry;Spülmaschine;Besteck reinstellen
+StorageEntry;Spülmaschine;Spülmaschine schließen

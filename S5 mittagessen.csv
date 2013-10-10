@@ -1,0 +1,24 @@
+AlarmEntry;Telefon;Lieferdienst anrufen
+UbisenseMockupEntry;Esstisch zu Lounge;von Esstisch zu Lounge gehen
+PowerEntry;Fernseher;Fernseher anschalten
+DoorBellEntry;Haustür;Lieferdienst klingelt
+UbisenseMockupEntry;Lounge zu Haustür;von Lounge zu Haustür gehen
+UbisenseMockupEntry;Haustür zu Esstisch;von Haustür zu Esstisch gehen
+UbisenseMockupEntry;Esstisch zu Küche;von Esstisch zu Küche gehen
+StorageEntry;Küchenschrank;Küchenschrank öffnen
+StorageEntry;Küchenschrank;Besteck entnehmen
+StorageEntry;Küchenschrank;Teller entnehmen
+StorageEntry;Küchenschrank;Küchenschrank schließen
+StorageEntry;Kühlschrank;Kühlschrank öffnen
+StorageEntry;Kühlschrank;Wasserflasche entnehmen
+StorageEntry;Kühlschrank;Kühlschrank schließen
+UbisenseMockupEntry;Küche zu Esstisch;von Küche zu Esstisch gehen
+UbisenseMockupEntry;Esstisch zu Küche;von Esstisch zu Küche gehen
+StorageEntry;Spülmaschine;Spülmaschine öffnen
+StorageEntry;Spülmaschine;Besteck einwerfen
+StorageEntry;Spülmaschine;Teller einwerfen
+StorageEntry;Spülmaschine;Spülmaschine schließen
+StorageEntry;Mülleimer;Essensschachtel entsorgen
+UbisenseMockupEntry;Küche zu Lounge;von Küche zu Lounge gehen
+PowerEntry;Fernseher;Fernseher ausschalten
+UbisenseMockupEntry;Lounge zu Esstisch;Fernseher ausschalten
