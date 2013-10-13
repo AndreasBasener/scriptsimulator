@@ -13,8 +13,22 @@ Script;Touchtisch;Tisch touchen
 UbisenseMockupEntry;ubi;in küche gehen
 Script;essen;essen
 UbisenseMockupEntry;ubi;zur Couch gehen
-Script;fernsehen;fernsehen
+Script;hinsetzen;hinsetzen
 UbisenseMockupEntry;ubi;zum Esstisch gehen
 Script;arbeiten;arbeiten
 UbisenseMockupEntry;ubi;zur Couch gehen
+Script;hinsetzen;hinsetzen
+UbisenseToolsEntry;ubi;in Küche gehen
+Script;essen;essen
+UbisenseMockupEntry;ubi;zu Couch gehen
 Script;fernsehen;fernsehen
+UbisenseMockupEntry;ubi;zum Touchtisc gehen
+Script;Touchtisch;Tisch touchen
+UbisenseMockupEntry;ubi;zur Couch gehen
+Script;fernsehen;fernsehen
+UbisenseToolsEntry;ubi;ins Bett gehen
+UbisenseMockupEntry;ubi;ins Bad gehen
+Script;Toilette;Toilette benutzen
+UbisenseMockupEntry;ubi;zum Kleiderschrank gehen
+Script;ankleiden;ankleiden
+Script;Schlafen abends;Schlafphasen 22:10 - 00:00
