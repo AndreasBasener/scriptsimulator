@@ -14,6 +14,9 @@ public class Helper
 	 * global <code>Random</code> instance
 	 */
 	private static Random		globalRandom;
+	
+	public static double MAX_DISTANCE_DEVIATION = 0.2; // in Meter
+	public static int MAX_TIME_DEVIATION = 300000; // in Millisekunden
 
 	/**
 	 * Default url for ActiveMQ
@@ -68,6 +71,7 @@ public class Helper
 	 * Default <code>Topic</code>-name for <code>BlindsEntry</code>
 	 */
 	public static final String	BLINDS_ENTRY_TOPIC_NAME		= "blindsEntryTopic";
+	public static final String  COUCH_ENTRY_TOPC_NAME       = "couchEntryTopic";
 	/**
 	 * Default <code>Topic</code>-name for <code>DoorBellEntry</code>
 	 */
@@ -183,5 +187,21 @@ public class Helper
 			globalRandom = new Random();
 
 		return globalRandom.nextInt(number);
+	}
+	
+	public static double getRandomDeviation()
+	{
+		if (globalRandom == null)
+			globalRandom = new Random();
+		
+		return globalRandom.nextGaussian();
+	}
+	
+	public static Random getGlobalRandom()
+	{
+		if (globalRandom == null)
+			globalRandom = new Random();
+		
+		return globalRandom;
 	}
 }

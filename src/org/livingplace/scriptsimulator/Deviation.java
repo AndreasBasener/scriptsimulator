@@ -14,7 +14,7 @@ public class Deviation
 	/**
 	 * Weight of the deviation. [0.,1.]
 	 */
-	private double	deviation;
+	private double	deviationWeight;
 
 	/**
 	 * Random instance to create random deviation value.
@@ -25,15 +25,15 @@ public class Deviation
 	 * Creates a new <code>Deviation</code> instance.
 	 * @param deviation Deviation weight [0,1]
 	 */
-	public Deviation(double deviation)
+	public Deviation(double deviationWeight)
 	{
-		if (deviation >= 0)
+		if (deviationWeight >= 0)
 		{
-			this.deviation = deviation;
+			this.deviationWeight = deviationWeight;
 		}
 		else
 		{
-			this.deviation = 0;
+			this.deviationWeight = 0;
 		}
 		
 		if (random == null)
@@ -55,7 +55,7 @@ public class Deviation
 
 		gauss /= 2;
 
-		double diff = gauss * deviation;
+		double diff = gauss * deviationWeight;
 
 		return diff;
 	}
@@ -63,18 +63,18 @@ public class Deviation
 	/**
 	 * @return the deviation
 	 */
-	public double getDeviation()
+	public double getDeviationWeight()
 	{
-		return deviation;
+		return deviationWeight;
 	}
 
 	/**
 	 * @param deviation
 	 *            the deviation to set
 	 */
-	public void setDeviation(double deviation)
+	public void setDeviationWeight(double deviationWeight)
 	{
-		this.deviation = deviation;
+		this.deviationWeight = deviationWeight;
 	}
 
 }

@@ -132,7 +132,8 @@ public class UbisenseEntry extends ScriptEntry
 			return;
 			
 		this.addEntryListener(new UbisenseEntryListener(activeMQip,
-															mongoDBip));
+															mongoDBip,
+															gson));
 	}
 
 	/**

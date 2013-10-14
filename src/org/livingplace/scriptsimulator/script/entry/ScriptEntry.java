@@ -306,7 +306,7 @@ public class ScriptEntry implements Scriptable
 	{
 		for (EntryListener l : listenerList.getListeners(EntryListener.class))
 		{
-			if(deviation.getDeviation()>0)
+			if(deviation.getDeviationWeight()>0)
 				l.entryEvent(event, deviation);
 			else
 				l.entryEvent(event);

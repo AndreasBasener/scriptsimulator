@@ -11,7 +11,9 @@ public class SleepEntryListener extends EntryJsonListener{
 
 	public SleepEntryListener(String amqip, String mongoip, Gson gson)
 	{
+		
 		super(amqip,mongoip,gson,Helper.BED_ENTRY_TOPIC_NAME);
+		
 	}
 	
 	@Override
