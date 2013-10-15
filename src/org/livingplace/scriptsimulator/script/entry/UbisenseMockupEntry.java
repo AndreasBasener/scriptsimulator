@@ -98,8 +98,8 @@ public class UbisenseMockupEntry extends ScriptEntry
 		{
 			e.printStackTrace();
 		}
-		System.out.println(this.getClass().getSimpleName() + " " + dataList.size()
-							+ " Datensätze gefunden");
+//		System.out.println(this.getClass().getSimpleName() + " " + dataList.size()
+//							+ " Datensätze gefunden");
 
 		if (descr.equals(Helper.DEFAULT_ENTRY_DESCRIPTION))
 		{
@@ -129,7 +129,7 @@ public class UbisenseMockupEntry extends ScriptEntry
 			setCurrentMockupData(udata.getMockupData());
 			long millis = startDate.getMillis();
 			millis += offset.toStandardDuration().getMillis();
-			millis += parentOffset.toStandardDuration().getMillis();
+//			millis += parentOffset.toStandardDuration().getMillis();
 			millis += nexttime;
 			currentMockupData.setTime(millis);
 			currentMockupData.setSendTime(this.sendTime);

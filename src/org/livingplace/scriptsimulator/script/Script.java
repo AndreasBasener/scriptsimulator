@@ -193,7 +193,7 @@ public class Script implements Scriptable
 
 		DateTime startDT = new DateTime();
 
-		System.out.println(startDate.toString("HH:mm:ss") + " Script \""+ name +"\" gestartet. Geschwindigkeit: "
+		System.out.println(startDate.plus(offset).toString("dd.MM.YYYY HH:mm:ss.SSS") + " Script \""+ name +"\" gestartet. Geschwindigkeit: "
 							+ speed);
 		for (int i = 0; i < entryList.size(); i++)
 		{
@@ -204,7 +204,7 @@ public class Script implements Scriptable
 			}
 			long diff = 0;
 			Scriptable entry = entryList.get(i);
-			entry.setStartDate(startDate);
+			entry.setStartDate(startDate.plus(offset));
 			entry.setSpeed(this.speed);
 			entry.setDeviation(this.deviation);
 			entry.setSendTime(this.sendTime);
@@ -548,6 +548,7 @@ public class Script implements Scriptable
 	public long getExecutionTime() {
 		long milli = startDate.getMillis();
 		milli += offset.toStandardDuration().getMillis();
+		//milli += parentOffset.toStandardDuration().getMillis();
 		
 		return milli;
 	}

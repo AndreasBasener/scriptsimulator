@@ -350,6 +350,7 @@ public class ScriptSimulator
 
 				scriptComp = new ScriptComposite(	comp,
 													style);
+				//Skript wird in Entryliste hinzugefügt
 				scriptComp.getOpenButton().addSelectionListener(new SelectionAdapter() {
 					@Override
 					public void widgetSelected(SelectionEvent e)
@@ -490,13 +491,14 @@ public class ScriptSimulator
 						saveScript();
 					}
 				});
-
+				//Laden eines Skriptes zum abspielen
 				gui.getLoadButton().addSelectionListener(new SelectionAdapter() {
 					@Override
 					public void widgetSelected(SelectionEvent e)
 					{
 						loadScript();
 						
+						//Geladenes Skript wird in scriptout.csv als Übersicht gedumpt
 						File file = new File("scriptout.csv");
 						try
 						{
@@ -669,17 +671,25 @@ public class ScriptSimulator
 			file = new File(path);
 			reader = new FileReader(file);
 			BufferedReader breader = new BufferedReader(reader);
+			StringBuffer strbuff = new StringBuffer();
 			String res = "";
 			String s;
+			boolean firstline = true;
 			while ((s = breader.readLine()) != null)
 			{
-				res += "\n" + s;
+//				res += "\n" + s;
+				if(!firstline)
+					strbuff.append("\n");
+				else
+					firstline = false;
+				strbuff.append(s);
 			}
-			res = res.replaceFirst(	"\n",
-									"");
+//			res = res.replaceFirst(	"\n",
+//									"");
+
 			// System.out.println(res);
 
-			Script newScript = saveLoadScriptGson.fromJson(	res,
+			Script newScript = saveLoadScriptGson.fromJson(	strbuff.toString(),
 															Script.class);
 
 			this.script = newScript;
@@ -706,16 +716,23 @@ public class ScriptSimulator
 			File file = new File(path);
 			FileReader reader = new FileReader(file);
 			BufferedReader breader = new BufferedReader(reader);
+			StringBuffer strbuff = new StringBuffer();
 			String res = "";
 			String s;
+			Boolean firstline = true;
 			while ((s = breader.readLine()) != null)
 			{
-				res += "\n" + s;
+//				res += "\n" + s;
+				if(!firstline)
+					strbuff.append("\n");
+				else
+					firstline = false;
+				strbuff.append(s);
 			}
-			res = res.replaceFirst(	"\n",
-									"");
+//			res = res.replaceFirst(	"\n",
+//									"");
 			// System.out.println(res);
-			scr = saveLoadScriptGson.fromJson(	res,
+			scr = saveLoadScriptGson.fromJson(	strbuff.toString(),
 												Script.class);
 			
 			breader.close();

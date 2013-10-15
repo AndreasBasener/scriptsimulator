@@ -691,7 +691,9 @@ public class GUI extends ApplicationWindow
 			{
 				Scriptable entry = (Scriptable) element;
 				Period period = entry.getOffset();
-				return String.format(	"%02d:%02d:%02d.%03d",
+//				System.out.println(period.toStandardDuration().getMillis());
+				return String.format(	"%02d %02d:%02d:%02d.%03d",
+										period.getDays(),
 										period.getHours(),
 										period.getMinutes(),
 										period.getSeconds(),

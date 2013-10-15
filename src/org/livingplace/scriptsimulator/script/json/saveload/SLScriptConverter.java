@@ -50,7 +50,9 @@ public class SLScriptConverter implements JsonSerializer<Script>, JsonDeserializ
 			script.setName(object.get("name").getAsString());
 			script.setDescription(object.get("description").getAsString());
 			long offset = object.get("offset").getAsLong();
+//			System.out.println(script.getName() + " " + offset);
 			script.setOffset(new Period(offset));
+//			System.out.println(script.getName() + " " + script.getOffset().toStandardDuration().getMillis());
 
 			if (object.get("entrylist").isJsonArray())
 			{

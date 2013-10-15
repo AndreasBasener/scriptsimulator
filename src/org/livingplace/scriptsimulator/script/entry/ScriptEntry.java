@@ -376,10 +376,9 @@ public class ScriptEntry implements Scriptable
 
 	@Override
 	public long getExecutionTime() {
-		long milli = startDate.getMillis();
-		milli += offset.toStandardDuration().getMillis();
-		milli += parentOffset.toStandardDuration().getMillis();
-		
+		long milli = startDate.plus(offset).getMillis();
+//		milli += offset.toStandardDuration().getMillis();
+		//milli += parentOffset.toStandardDuration().getMillis();
 		return milli;
 	}
 	

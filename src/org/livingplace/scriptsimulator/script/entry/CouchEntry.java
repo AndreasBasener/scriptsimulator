@@ -16,7 +16,6 @@ public class CouchEntry extends ScriptEntry{
 		c30,c31,
 		c40,c41,c42,c43,
 		c50,c51,c52,c53,
-		
 	}
 	
 	/**
