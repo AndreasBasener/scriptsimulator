@@ -46,18 +46,21 @@ public class UbisenseMockupEntryListener extends EntryJsonListener
 		UbisenseMockupEntry entry = (UbisenseMockupEntry) event.getSource();
 		UbisenseMockupData data = entry.getCurrentMockupData();
 		
-		double fixedDeviation = 0.2;
-		
-		Point3D position = data.getPosition();
-		position.setX(position.getX() + fixedDeviation*deviation.getRandomDeviation());
-		position.setY(position.getY() + fixedDeviation*deviation.getRandomDeviation());
-		position.setZ(position.getZ() + fixedDeviation*deviation.getRandomDeviation());
-		
-		data.setPosition(position);
-		
-//		String s = gson.toJson(entry.getCurrentMockupData());
-		String s = gson.toJson(data);
-		
-		sendJSONtoActiveMQ(s);
+		double devval = entry.getDeviation().getDeviationWeight();
+		if(Helper.getRandomDouble() > devval)
+		{
+			double fixedDeviation = 0.2;
+			
+			Point3D position = data.getPosition();
+			position.setX(position.getX() + fixedDeviation*deviation.getRandomDeviation());
+			position.setY(position.getY() + fixedDeviation*deviation.getRandomDeviation());
+			position.setZ(position.getZ() + fixedDeviation*deviation.getRandomDeviation());
+			
+			data.setPosition(position);
+			
+			String s = gson.toJson(data);
+
+			sendJSONtoActiveMQ(s);
+		}
 	}
 }

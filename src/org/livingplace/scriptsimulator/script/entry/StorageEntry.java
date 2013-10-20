@@ -80,7 +80,7 @@ public class StorageEntry extends ScriptEntry
 		this.addEntryListener(new StorageEntryListener(activeMQip,
 														mongoDBip,
 														gson));
-		this.addEntryListener(new StorageWriterListener(activeMQip, mongoDBip, gson));
+		this.addEntryListener(new StorageWriterListener());
 	}
 	/**
 	 * @return the storageID

@@ -672,22 +672,16 @@ public class ScriptSimulator
 			reader = new FileReader(file);
 			BufferedReader breader = new BufferedReader(reader);
 			StringBuffer strbuff = new StringBuffer();
-			String res = "";
 			String s;
 			boolean firstline = true;
 			while ((s = breader.readLine()) != null)
 			{
-//				res += "\n" + s;
 				if(!firstline)
 					strbuff.append("\n");
 				else
 					firstline = false;
 				strbuff.append(s);
 			}
-//			res = res.replaceFirst(	"\n",
-//									"");
-
-			// System.out.println(res);
 
 			Script newScript = saveLoadScriptGson.fromJson(	strbuff.toString(),
 															Script.class);
@@ -717,21 +711,16 @@ public class ScriptSimulator
 			FileReader reader = new FileReader(file);
 			BufferedReader breader = new BufferedReader(reader);
 			StringBuffer strbuff = new StringBuffer();
-			String res = "";
 			String s;
 			Boolean firstline = true;
 			while ((s = breader.readLine()) != null)
 			{
-//				res += "\n" + s;
 				if(!firstline)
 					strbuff.append("\n");
 				else
 					firstline = false;
 				strbuff.append(s);
 			}
-//			res = res.replaceFirst(	"\n",
-//									"");
-			// System.out.println(res);
 			scr = saveLoadScriptGson.fromJson(	strbuff.toString(),
 												Script.class);
 			

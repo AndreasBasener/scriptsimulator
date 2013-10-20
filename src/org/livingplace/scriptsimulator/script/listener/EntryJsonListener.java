@@ -9,7 +9,6 @@ import javax.jms.TopicPublisher;
 import javax.jms.TopicSession;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.joda.time.Period;
 import org.livingplace.scriptsimulator.Deviation;
 import org.livingplace.scriptsimulator.Helper;
 import org.livingplace.scriptsimulator.script.entry.EntryEvent;
@@ -92,16 +91,22 @@ public class EntryJsonListener implements EntryListener
 	public void entryEvent(EntryEvent event, Deviation deviation) {
 		ScriptEntry entry = (ScriptEntry) event.getSource();
 		
-		if(deviation.getDeviationWeight()>0)
-		{
-			long time = entry.getOffset().toStandardDuration().getMillis();
-			time = time + (long) (Helper.MAX_TIME_DEVIATION * deviation.getRandomDeviation());
-			entry.setOffset(new Period(time));
-		}
+		Deviation dev = entry.getDeviation();
+		double devval = dev.getDeviationWeight();
+		
+//		if(deviation.getDeviationWeight()>0)
+//		{
+//			long time = entry.getOffset().toStandardDuration().getMillis();
+//			time = time + (long) (Helper.MAX_TIME_DEVIATION * deviation.getRandomDeviation());
+//			entry.setOffset(new Period(time));
+//		}
 
 		String s = gson.toJson(entry);
 
-		sendJSONtoActiveMQ(s);
+		if(Helper.getRandomDouble() > devval)
+		{
+			sendJSONtoActiveMQ(s);
+		}
 	}
 	
 	/**

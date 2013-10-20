@@ -189,12 +189,19 @@ public class Helper
 		return globalRandom.nextInt(number);
 	}
 	
-	public static double getRandomDeviation()
+	public static double getRandomGaussian()
 	{
 		if (globalRandom == null)
 			globalRandom = new Random();
 		
 		return globalRandom.nextGaussian();
+	}
+	public static double getRandomDouble()
+	{
+		if (globalRandom == null)
+			globalRandom = new Random();
+		
+		return globalRandom.nextDouble();
 	}
 	
 	public static Random getGlobalRandom()
